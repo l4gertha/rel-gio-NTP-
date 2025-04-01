@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "author": "Você",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp32",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 60,
+      "left": 300,
+      "attrs": { "address": "0x27" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnHourUp",
+      "top": 200,
+      "left": 100,
+      "attrs": { "color": "green", "label": "Hora +" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnMinUp",
+      "top": 200,
+      "left": 180,
+      "attrs": { "color": "blue", "label": "Min +" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnHourDown",
+      "top": 200,
+      "left": 260,
+      "attrs": { "color": "yellow", "label": "Hora -" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnMinDown",
+      "top": 200,
+      "left": 340,
+      "attrs": { "color": "red", "label": "Min -" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnConfirm",
+      "top": 200,
+      "left": 420,
+      "attrs": { "color": "white", "label": "OK" }
+    }
+  ],
+  "connections": [
+    ["esp32:3V3", "lcd1:VCC", "red", ["v0"]],
+    ["esp32:GND", "lcd1:GND", "black", ["v0"]],
+    ["esp32:GPIO21", "lcd1:SDA", "blue", ["v0"]],
+    ["esp32:GPIO22", "lcd1:SCL", "green", ["v0"]],
+    ["btnHourUp:1.l", "esp32:GPIO12", "green", ["h0"]],
+    ["btnMinUp:1.l", "esp32:GPIO13", "blue", ["h0"]],
+    ["btnHourDown:1.l", "esp32:GPIO14", "yellow", ["h0"]],
+    ["btnMinDown:1.l", "esp32:GPIO15", "red", ["h0"]],
+    ["btnConfirm:1.l", "esp32:GPIO16", "white", ["h0"]],
+    ["btnHourUp:2.r", "esp32:GND", "black", ["v0"]],
+    ["btnMinUp:2.r", "esp32:GND", "black", ["v0"]],
+    ["btnHourDown:2.r", "esp32:GND", "black", ["v0"]],
+    ["btnMinDown:2.r", "esp32:GND", "black", ["v0"]],
+    ["btnConfirm:2.r", "esp32:GND", "black", ["v0"]]
+  ]
+}
